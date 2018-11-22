@@ -3,8 +3,8 @@ import java.util.Queue;
 
 public class BreadthFirstSearch  extends ASearch
 {
-	Queue<ASearchNode> openList;
-	Queue<ASearchNode> closeList;
+	private Queue<ASearchNode> openList;
+	private Queue<ASearchNode> closedList;
 	@Override
 	public String getSolverName() 
 	{
@@ -25,7 +25,7 @@ public class BreadthFirstSearch  extends ASearch
 	public void initLists() 
 	{
 		openList = new LinkedList<>();
-		closeList = new LinkedList<>();
+		closedList = new LinkedList<>();
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class BreadthFirstSearch  extends ASearch
 	
 	@Override
 	public boolean isClosed(ASearchNode node) {
-		for (ASearchNode SN:closeList){
+		for (ASearchNode SN: closedList){
 			if(SN.equals(node))
 				return true;
 		}
@@ -65,7 +65,7 @@ public class BreadthFirstSearch  extends ASearch
 	@Override
 	public void addToClosed(ASearchNode node) {
 		if(node!=null)
-			closeList.add(node);
+			closedList.add(node);
 	}
 
 	@Override
