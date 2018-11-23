@@ -1,12 +1,11 @@
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 public class UniformCostSearch extends ASearch
 {
 	private PriorityQueue<ASearchNode> openList;
-	private Queue<ASearchNode> closedList;
+	private LinkedList<ASearchNode> closedList;
 
 	@Override
 	public String getSolverName() 
@@ -25,7 +24,7 @@ public class UniformCostSearch extends ASearch
 	public void initLists()
 	{
 		Comparator<Object> comparator = new ASearchNodeComparator();
-		openList = new PriorityQueue(comparator);
+		openList = new PriorityQueue<>(comparator);
 		closedList = new LinkedList<>();
 	}
 
@@ -76,17 +75,18 @@ public class UniformCostSearch extends ASearch
 	@Override
 	public int openSize() 
 	{
-		return 0;
+		return openList.size();
 	}
 
 	@Override
 	public ASearchNode getBest() 
 	{
-		return null;
+		return openList.poll();
 	}
 
 	public class ASearchNodeComparator implements Comparator<Object> {
 
+		@Override
 		public int compare(Object x, Object y) {
 			ASearchNode x1 = (ASearchNode)x;
 			ASearchNode y1 = (ASearchNode)y;
