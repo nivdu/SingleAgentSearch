@@ -13,10 +13,10 @@ public class Main
 		System.out.println("Start!");
 		//task1();
 		//task2();
-		task3();
+//		task3();
 		//task4();
 		//task5();
-		//task6();
+		task6();
 		System.out.println("");
 		System.out.println("Done!");
 	}
