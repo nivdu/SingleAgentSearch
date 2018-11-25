@@ -1,3 +1,4 @@
+import java.util.Comparator;
 
 public class PureHeuristicSearch  extends ASearch
 {
@@ -79,8 +80,7 @@ public class PureHeuristicSearch  extends ASearch
 	}
 
 	@Override
-	public ASearchNode getBest() 
-	{
+	public ASearchNode getBest() {
 		return null;
 	}
 
