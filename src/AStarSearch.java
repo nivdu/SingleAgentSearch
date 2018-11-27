@@ -79,18 +79,20 @@ public class AStarSearch extends ASearch {
 		public int compare(Object x, Object y) {
 			ASearchNode x1 = (ASearchNode) x;
 			ASearchNode y1 = (ASearchNode) y;
-			double x1Func = x1.getH() + x1.getG();
-			double y1Func = y1.getH() + y1.getG();
+			double x1Func = x1.getF();
+			double y1Func = y1.getF();
 			if (x1Func < y1Func) {
 				return -1;
 			} else {
 				if (x1Func > y1Func) {
 					return 1;
 				} else {
-					if (x1.getH() > y1.getH())
+					double x1H = x1.getH();
+					double y1H = y1.getH();
+					if (x1H > y1H)
 						return 1;
 					else {
-						if (x1.getH() < y1.getH())
+						if (x1H < y1H)
 							return -1;
 						else
 							return 0;
